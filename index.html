@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Glass Classification Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div id="wrap">
+    <h1>Predict Glass Type</h1>
+
+    <section id="glass" class="frame2">
+        <div class="login">
+            <form action="{{ url_for('predict') }}" method="post">
+                <table class="entryForm">
+                    <tr>
+                        <th>RI (Refractive Index):</th>
+                        <td><input type="text" name="ri" placeholder="RI" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <th>Na (Sodium Oxide Content):</th>
+                        <td><input type="text" name="na" placeholder="Na" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <th>Al (Aluminum Oxide Content):</th>
+                        <td><input type="text" name="al" placeholder="Al" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <th>Ca (Calcium Oxide Content):</th>
+                        <td><input type="text" name="ca" placeholder="Ca" required="required" /></td>
+                    </tr>
+                </table>
+                <div class="btns">
+                    <button type="reset" class="btn btn-clear">Reset</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <br>
+    <br>
+    {{ prediction_text }}
+</div>
+</body>
+</html>
